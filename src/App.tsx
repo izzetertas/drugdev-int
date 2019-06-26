@@ -1,16 +1,25 @@
 import React, { Component } from "react";
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+
+import { GRAPHQL_API_URL } from './constants'
+
+import ContactList from './components/ContactList'
+
 import logo from "./logo.svg";
+
 import "./App.css";
 
+const client = new ApolloClient({ uri: GRAPHQL_API_URL })
+
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Contacts</h1>
-        </header>
-      </div>
-    );
+      <ApolloProvider client={client}>
+        <ContactList />
+      </ApolloProvider>
+    )
   }
 }
 
