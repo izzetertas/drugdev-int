@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/styles';
 import ListItem from '@material-ui/core/ListItem';
 
 import RemoveItem from '../RemoveItem';
+import Edit from '@material-ui/icons/Edit'
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,7 +31,7 @@ export interface ContactItemProps {
 }
 
 export default function ContactItem(props: ContactItemProps){
-  const classes = useStyles();
+  const classes = useStyles()
   return (
     <ListItem key={props.id} className={classes.wrapper}>
       <div className={classes.name}>{props.name}</div>
@@ -37,6 +39,7 @@ export default function ContactItem(props: ContactItemProps){
         id={props.id}
         onChange={() => props.onChange && props.onChange(props.id, ContactItemActionType.REMOVE)}
       />
+      <Link to={`contacts/${props.id}/edit`} ><Edit /></Link>      
     </ListItem>
   )
 }
