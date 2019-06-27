@@ -12,6 +12,16 @@ export const GET_CONTACTS = gql`
   }
 `
 
+export const GET_CONTACT = gql`
+  query getContact($id: ID){
+    contact(id:$id) {
+      id
+      email
+      name
+    }
+  }
+`
+
 export const REMOVE_CONTACT = gql`
   mutation deleteContact($id: ID) {
     deleteContact(id: $id)
