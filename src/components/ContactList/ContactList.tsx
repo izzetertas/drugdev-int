@@ -1,19 +1,23 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 
+
+import { Link } from 'react-router-dom'
 import { createStyles, Theme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/styles';
 
 import List from '@material-ui/core/List';
 
-
-import { Contact } from '../../interface'
 import ContactItem from '../ContactItem/ContactItem';
 import { GET_CONTACTS } from '../queries';
 import { Button } from '@material-ui/core';
-import AddItem from '../AddItem';
 
-
+interface Contact {
+  id: string,
+  name: string;
+  email: string
+  history?: any
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 48,
       padding: '0 30px',
       margin: '4px'
-      // backgroundColor: theme.palette.background.paper,
     },
     addButton: {
       margin: 8,
@@ -46,22 +49,28 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-
 const ContactList = () => {
   const classes = useStyles();
+
   return (
-    <Query query={GET_CONTACTS}>
-      {({ data, loading, refetch }) => {
+    <Query query={GET_CONTACTS} fetchPolicy='cache-and-network'>
+      {({ data, loading }) => {
         if (loading) return <div>loading</div>
         if (!data.contacts) return <div>No Contact on the list</div>
         return (
           <div className={classes.root}>
             <h1>Contacts</h1>
-            <Button variant="contained" size="small" color="primary" className={classes.addButton}>
-              + Add New Contact
-            </Button>
-            {/* <AddItem onChange={() => refetch()} /> */}
-            <List component="nav" aria-label="Main mailbox folders">
+            <Link to='/contacts/new'>
+              <Button
+                variant="contained"
+                size="small"
+                color="primary"
+                className={classes.addButton}
+              >
+                + Add New Contact
+              </Button>
+            </Link>
+            <List aria-label="Contact List">
               {
                 data.contacts.map((item: Contact, index: number) => (
                   <ContactItem {...item} key={index} />
