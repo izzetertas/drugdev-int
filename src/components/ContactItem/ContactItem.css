@@ -1,0 +1,7 @@
+.wrapper {
+  display: 'flex';
+}
+
+.name {
+  width: 200px;
+}

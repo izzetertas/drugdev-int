@@ -7,16 +7,7 @@ import RemoveItem from '../RemoveItem';
 import Edit from '@material-ui/icons/Edit'
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    wrapper: {
-      display: 'flex',
-    },
-    name: {
-      width: 200,
-    },
-  }),
-);
+import './ContactItem.css'
 
 export enum ContactItemActionType {
   REMOVE = 'remove',
@@ -31,10 +22,9 @@ export interface ContactItemProps {
 }
 
 export default function ContactItem(props: ContactItemProps){
-  const classes = useStyles()
   return (
-    <ListItem key={props.id} className={classes.wrapper}>
-      <div className={classes.name}>{props.name}</div>
+    <ListItem key={props.id} className='wrapper'>
+      <div className='name'>{props.name}</div>
       <RemoveItem
         id={props.id}
         onChange={() => props.onChange && props.onChange(props.id, ContactItemActionType.REMOVE)}

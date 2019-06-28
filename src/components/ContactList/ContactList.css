@@ -1,0 +1,32 @@
+.contactListWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+  padding: 16px;
+  margin-top: 20;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.contactListHeader {
+  width: 95%;
+  margin: 8px 16px;
+  text-align: center;
+  border: 1px solid #bbbebb;
+  font-size: 16px;
+}
+
+
+.contactListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  border: 1px solid #bbbebb;
+}
+
+.contactListContainer a {
+  margin: 8px;
+  text-decoration: none;
+}
