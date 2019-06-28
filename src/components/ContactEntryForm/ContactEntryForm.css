@@ -1,0 +1,40 @@
+.contactEntryWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+  padding: 16px;
+  margin-top: 20;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.contactEntryHeader {
+  width: 95%;
+  margin: 8px 16px;
+  text-align: center;
+  border: 1px solid #bbbebb;
+  font-size: 16px;
+}
+
+.contactEntryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  border: 1px solid #bbbebb;
+}
+
+.buttonContainer {
+  margin: 16px 0;
+  text-align: left;
+  padding-left: 8px;
+}
+
+button {
+  margin: 4px !important;
+}
+
+.formItem { 
+  margin: 16px;
+}
