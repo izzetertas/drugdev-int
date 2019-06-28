@@ -19,17 +19,12 @@ export default function EditContact(props: EditContactProps) {
           if (loading) return <div>Please wait...</div>
           if (error) return <div>Error: ${error}</div>
 
-          console.log('DATA', data);
           return (
-            <Mutation
-              mutation={UPDATE_CONTACT}
-            // onCompleted={() => props.history.push('/')}
-            >
+            <Mutation mutation={UPDATE_CONTACT}>
               {updateTo => (
                 <ContactEntryForm
                   contactInfo={data.contact}
                   onSubmit={(contact: any) => {
-                    console.log(contact)
                     if (contact) updateTo({ variables: { contact } })
                     props.history.push('/')
                   }

@@ -3,9 +3,6 @@ import { Query } from 'react-apollo'
 
 
 import { Link } from 'react-router-dom'
-import { createStyles, Theme } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/styles';
-
 import List from '@material-ui/core/List';
 
 import ContactItem from '../ContactItem/ContactItem';
@@ -21,18 +18,7 @@ interface Contact {
   history?: any
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    addButton: {
-      margin: 8,
-      width: 180,
-    },
-  }),
-);
-
 const ContactList = () => {
-  const classes = useStyles();
-
   return (
     <Query query={GET_CONTACTS} fetchPolicy='cache-and-network'>
       {({ data, loading }) => {
@@ -49,7 +35,7 @@ const ContactList = () => {
                   variant="contained"
                   size="small"
                   color="primary"
-                  className={classes.addButton}
+                  className='addButton'
                 >
                   + Add New Contact
               </Button>

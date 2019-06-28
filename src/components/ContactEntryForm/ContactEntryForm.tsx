@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import uuid from 'uuid/v4'
 import get from 'lodash/get'
 import Button from '@material-ui/core/Button';
-import { FormControl, Input, InputLabel, Theme, Grid } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/styles';
+import { FormControl, Input, InputLabel } from '@material-ui/core';
 
 import './ContactEntryForm.css'
 
@@ -18,17 +17,7 @@ export interface ContactEntryFormProps {
   onSubmit: (contactInfo: ContactInfo | null) => void,
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: '4px !important'
-    }
-  }),
-);
-
-
 export default function ContactEntryForm(props: ContactEntryFormProps) {
-  const classes = useStyles();
   const [email, setEmail] = useState(get(props, 'contactInfo.email', ''))
   const [name, setName] = useState(get(props, 'contactInfo.name', ''))
 

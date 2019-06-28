@@ -18,7 +18,6 @@ export default function AddContact(props: AddContactProps) {
       {addTodo => (
         <ContactEntryForm
           onSubmit={(contact: any) => {
-            console.log(contact)
             if (contact) addTodo({ variables: { contact } })
             props.history.push('/')
           }
