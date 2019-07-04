@@ -13,13 +13,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Contact List App...</h1>
-          <Switch>
-            <Route exact path="/" component={ContactList} />
-            <Route exact path="/contacts" component={ContactList} />
-            <Route exact path="/contacts/new" component={AddContact} />
-            <Route exact path="/contacts/:id/edit" component={EditContact} />
-          </Switch>
         </header>
+        <Switch>
+          <Route exact path="/" component={ContactList} />
+          <Route exact path="/contacts" component={ContactList} />
+          <Route exact path="/contacts/new" component={AddContact} />
+          <Route exact path="/contacts/:id/edit" component={EditContact} />
+        </Switch>
       </div>
     )
   }

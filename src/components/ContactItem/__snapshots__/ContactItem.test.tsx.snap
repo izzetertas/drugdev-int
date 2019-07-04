@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContactItem /> should render without exploding 1`] = `
+<WithStyles(ListItem)
+  className="wrapper"
+  key="Asd21asdAGDe"
+>
+  <div
+    className="input"
+  >
+    test
+  </div>
+  <div
+    className="input"
+  >
+    test@mail.com
+  </div>
+  <div
+    className="buttons"
+  >
+    <RemoveContact
+      id="Asd21asdAGDe"
+    />
+    <Link
+      to="contacts/Asd21asdAGDe/edit"
+    >
+      <EditIcon />
+    </Link>
+  </div>
+</WithStyles(ListItem)>
+`;

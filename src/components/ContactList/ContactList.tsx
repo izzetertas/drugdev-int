@@ -21,15 +21,17 @@ interface Contact {
 const ContactList = () => {
   return (
     <Query query={GET_CONTACTS} fetchPolicy='cache-and-network'>
-      {({ data, loading }) => {
-        if (loading) return <div>loading</div>
-        if (!data.contacts) return <div>No Contact on the list</div>
+      {({ data, error, loading }) => {
+        if (loading) return <div>Please wait...</div>
+        if (error) return <div>Error: ${error}</div>
+        console.log('data', data);
+
         return (
           <div className='contactListWrapper'>
             <div className='contactListHeader'>
               <h2>Contacts</h2>
             </div>
-            <div className='contactListContainer'>
+            <div className='contactListContent'>
               <Link to='/contacts/new'>
                 <Button
                   variant="contained"
@@ -40,13 +42,18 @@ const ContactList = () => {
                   + Add New Contact
               </Button>
               </Link>
-              <List aria-label="Contact List">
-                {
-                  data.contacts.map((item: Contact, index: number) => (
-                    <ContactItem {...item} key={index} />
-                  ))
-                }
-              </List>
+              {!data.contacts.length &&
+                <div>No Contact on the list...</div>
+              }
+              {data.contacts.length &&
+                <List aria-label="Contact List" className='contactList'>
+                  {
+                    data.contacts.map((item: Contact, index: number) => (
+                      <ContactItem {...item} key={index} />
+                    ))
+                  }
+                </List>
+              }
             </div>
           </div>
         )

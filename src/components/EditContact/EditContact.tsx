@@ -1,8 +1,8 @@
 import React from 'react'
 import { Mutation, Query } from 'react-apollo'
 
-import { GET_CONTACT, UPDATE_CONTACT } from '../queries';
 import ContactEntryForm from '../ContactEntryForm/ContactEntryForm';
+import { GET_CONTACT, UPDATE_CONTACT } from '../queries';
 
 export interface EditContactProps {
   onSubmit: (isRecordAdded: boolean) => void,
@@ -11,7 +11,6 @@ export interface EditContactProps {
 }
 
 export default function EditContact(props: EditContactProps) {
-
   return (
     <Query query={GET_CONTACT} variables={ { id: props.match.params.id }}>
       {

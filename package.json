@@ -5,10 +5,6 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^4.2.1",
-    "@types/jest": "24.0.0",
-    "@types/node": "10.12.21",
-    "@types/react": "16.8.2",
-    "@types/react-dom": "16.8.0",
     "apollo-boost": "^0.4.3",
     "apollo-server": "^2.4.0",
     "graphql": "^14.3.1",
@@ -42,8 +38,18 @@
   "proxy": "http://localhost:3001",
   "devDependencies": {
     "@material-ui/styles": "^4.1.2",
+    "@types/jest": "24.0.0",
+    "@types/node": "10.12.21",
+    "@types/react": "16.8.2",
+    "@types/react-dom": "16.8.0",
+    "@types/enzyme": "^3.9.4",
     "@types/lodash": "^4.14.135",
     "@types/react-router-dom": "^4.3.4",
-    "@types/uuid": "^3.4.4"
+    "@types/react-test-renderer": "^16.8.2",
+    "@types/uuid": "^3.4.4",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "react-test-renderer": "^16.8.6"
   }
 }

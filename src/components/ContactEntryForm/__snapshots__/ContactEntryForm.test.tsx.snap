@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContactEntryForm /> when an update record is come should render without exploding 1`] = `
+<div
+  className="contactEntryWrapper"
+>
+  <div
+    className="contactEntryHeader"
+  >
+    <h2>
+      Update 
+      Contact
+    </h2>
+  </div>
+  <div
+    className="contactEntryContainer"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="formItem"
+      >
+        <WithStyles(FormControl)>
+          <WithStyles(WithFormControlContext(InputLabel))
+            htmlFor="name"
+          >
+            Name
+          </WithStyles(WithFormControlContext(InputLabel))>
+          <WithStyles(Input)
+            aria-describedby="name"
+            id="name"
+            onChange={[Function]}
+            value="Izzet"
+          />
+        </WithStyles(FormControl)>
+      </div>
+      <div>
+        <WithStyles(FormControl)>
+          <WithStyles(WithFormControlContext(InputLabel))
+            htmlFor="email"
+          >
+            Email address
+          </WithStyles(WithFormControlContext(InputLabel))>
+          <WithStyles(Input)
+            aria-describedby="email"
+            id="email"
+            onChange={[Function]}
+            value="izzet@gmail.com"
+          />
+        </WithStyles(FormControl)>
+      </div>
+      <div
+        className="buttonContainer"
+      >
+        <WithStyles(Button)
+          className="button"
+          color="primary"
+          type="submit"
+          variant="contained"
+        >
+          Update
+        </WithStyles(Button)>
+        <WithStyles(Button)
+          className="button"
+          color="secondary"
+          onClick={[Function]}
+          variant="contained"
+        >
+          Cancel
+        </WithStyles(Button)>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<ContactEntryForm /> when new record is entered should render without exploding 1`] = `
+<div
+  className="contactEntryWrapper"
+>
+  <div
+    className="contactEntryHeader"
+  >
+    <h2>
+      Add New 
+      Contact
+    </h2>
+  </div>
+  <div
+    className="contactEntryContainer"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="formItem"
+      >
+        <WithStyles(FormControl)>
+          <WithStyles(WithFormControlContext(InputLabel))
+            htmlFor="name"
+          >
+            Name
+          </WithStyles(WithFormControlContext(InputLabel))>
+          <WithStyles(Input)
+            aria-describedby="name"
+            id="name"
+            onChange={[Function]}
+            value=""
+          />
+        </WithStyles(FormControl)>
+      </div>
+      <div>
+        <WithStyles(FormControl)>
+          <WithStyles(WithFormControlContext(InputLabel))
+            htmlFor="email"
+          >
+            Email address
+          </WithStyles(WithFormControlContext(InputLabel))>
+          <WithStyles(Input)
+            aria-describedby="email"
+            id="email"
+            onChange={[Function]}
+            value=""
+          />
+        </WithStyles(FormControl)>
+      </div>
+      <div
+        className="buttonContainer"
+      >
+        <WithStyles(Button)
+          className="button"
+          color="primary"
+          type="submit"
+          variant="contained"
+        >
+          Add
+        </WithStyles(Button)>
+        <WithStyles(Button)
+          className="button"
+          color="secondary"
+          onClick={[Function]}
+          variant="contained"
+        >
+          Cancel
+        </WithStyles(Button)>
+      </div>
+    </form>
+  </div>
+</div>
+`;

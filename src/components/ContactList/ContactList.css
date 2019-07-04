@@ -1,10 +1,9 @@
 .contactListWrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 16px;
-  padding: 16px;
+  margin: 0 8px;
+  padding: 8px;
   margin-top: 20;
-  width: 100%;
   justify-items: center;
   align-items: center;
 }
@@ -13,20 +12,27 @@
   width: 95%;
   margin: 8px 16px;
   text-align: center;
-  border: 1px solid #bbbebb;
+  border-bottom: 1px solid #bbbebb;
   font-size: 16px;
 }
 
+.contactList {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
 
-.contactListContainer {
+.contactListContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95%;
-  border: 1px solid #bbbebb;
+  width: 50%;
+  padding: 16px 0;
 }
 
-.contactListContainer a {
+.contactListContent a {
   margin: 8px;
   text-decoration: none;
 }
@@ -34,4 +40,10 @@
 .addButton {
   margin: 8px;
   width: 180;
+}
+
+@media only screen and (max-width: 800px) {
+  .contactListContent {
+    width: 100%;
+  }
 }

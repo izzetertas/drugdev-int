@@ -17,67 +17,71 @@ export interface ContactEntryFormProps {
   onSubmit: (contactInfo: ContactInfo | null) => void,
 }
 
-export default function ContactEntryForm(props: ContactEntryFormProps) {
-  const [email, setEmail] = useState(get(props, 'contactInfo.email', ''))
-  const [name, setName] = useState(get(props, 'contactInfo.name', ''))
+export default class ContactEntryForm extends React.Component<ContactEntryFormProps> {
+  state = {
+    email: get(this.props, 'contactInfo.email', ''),
+    name: get(this.props, 'contactInfo.name', '')
+  }
 
-  return (
-    <div className='contactEntryWrapper'>
-      <div className='contactEntryHeader'>
-        <h2> {get(props, 'contactInfo.id') ? 'Update' : 'Add New'} Contact</h2>
-      </div>
-      <div className='contactEntryContainer'>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            props.onSubmit({
-              id: get(props, 'contactInfo.id', uuid()),
-              name,
-              email
-            })
-          }}
-        >
-          <div className='formItem'>
-            <FormControl>
-              <InputLabel htmlFor="name">Name</InputLabel>
-              <Input
-                id="name"
-                aria-describedby="name"
-                onChange={(e) => setName(e.target.value)}
-                defaultValue={name}
-              />
-            </FormControl>
-          </div>
-          <div>
-            <FormControl>
-              <InputLabel htmlFor="email">Email address</InputLabel>
-              <Input
-                id="email"
-                aria-describedby="email"
-                onChange={(e) => setEmail(e.target.value)}
-                defaultValue={email}
-              />
-            </FormControl>
-          </div>
-          <div className='buttonContainer'>
-            <Button type='submit'
-              variant="contained"
-              color="primary"
-              className='button'
-            >
-              {get(props, 'contactInfo.id') ? 'Update' : 'Add'}
-            </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              className='button'
-              onClick={() => props.onSubmit(null)}
-            >
-              Cancel
+  render() {
+    return (
+      <div className='contactEntryWrapper'>
+        <div className='contactEntryHeader'>
+          <h2>{get(this.props, 'contactInfo.id') ? 'Update ' : 'Add New '}Contact</h2>
+        </div>
+        <div className='contactEntryContainer'>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.props.onSubmit({
+                id: get(this.props, 'contactInfo.id', uuid()),
+                name: this.state.name,
+                email: this.state.email
+              })
+            }}
+          >
+            <div className='formItem'>
+              <FormControl>
+                <InputLabel htmlFor="name">Name</InputLabel>
+                <Input
+                  id="name"
+                  aria-describedby="name"
+                  onChange={(e) => { console.log(e.target.value); this.setState({ name: e.target.value}) }}
+                  value={this.state.name}
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl>
+                <InputLabel htmlFor="email">Email address</InputLabel>
+                <Input
+                  id="email"
+                  aria-describedby="email"
+                  onChange={(e) => this.setState({email: e.target.value})}
+                  value={this.state.email}
+                />
+              </FormControl>
+            </div>
+            <div className='buttonContainer'>
+              <Button type='submit'
+                variant="contained"
+                color="primary"
+                className='button'
+              >
+                {get(this.props, 'contactInfo.id') ? 'Update' : 'Add'}
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className='button'
+                onClick={() => this.props.onSubmit(null)}
+              >
+                Cancel
           </Button>
-          </div>
-        </form>
-      </div>
-    </div >
-  )
+            </div>
+          </form>
+        </div>
+      </div >
+    )
+  }
 }
